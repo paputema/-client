@@ -26,7 +26,6 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.wb.swt.SWTResourceManager;
 
 import kusoBotMaker.AccountMode;
 import kusoBotMaker.BotAccount;
@@ -292,7 +291,7 @@ public class KbmModeWindow {
 		fd_compositeEditIcon.top = new FormAttachment(textBotName, 6);
 		fd_compositeEditIcon.left = new FormAttachment(0, 341);
 		compositeEditIcon.setLayoutData(fd_compositeEditIcon);
-		compositeEditIcon.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		compositeEditIcon.setBackground(display.getSystemColor(SWT.COLOR_WHITE));
 
 		Composite composite_2 = new Composite(group, SWT.NONE);
 		FormData fd_composite_2 = new FormData();

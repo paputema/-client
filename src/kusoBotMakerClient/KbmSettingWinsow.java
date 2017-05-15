@@ -38,19 +38,6 @@ public class KbmSettingWinsow {
 
 
 	/**
-	 * Launch the application.
-	 * @param args
-	 */
-	/*public static void main(String[] args) {
-		try {
-			KbmSettingWinsow window = new KbmSettingWinsow();
-			window.open(Display.getDefault());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}*/
-
-	/**
 	 * Open the window.
 	 * @throws TwitterException
 	 * @wbp.parser.entryPoint
@@ -181,10 +168,10 @@ public class KbmSettingWinsow {
 		fd_textConsumers.top = new FormAttachment(group, 8);
 		fd_textConsumers.left = new FormAttachment(btnNewButton, 6);
 		textConsumers.setLayoutData(fd_textConsumers);
-		textConsumers.setText("consumerKey = " + botAccount.consumerKey  + "\r\n" +
-	"consumerSecret = "  + botAccount.consumerSecret + "\r\n" +
-	"Access_Token = " + botAccount.Access_Token + "\r\n" +
-	"Access_Token_Secret = " + botAccount.Access_Token_Secret + "\r\n" );
+		textConsumers.setText("consumerKey = " + botAccount.consumerKey  + "\r\n"
+							+	"consumerSecret = "  + botAccount.consumerSecret + "\r\n"
+							+	"Access_Token = " + botAccount.Access_Token + "\r\n"
+							+	"Access_Token_Secret = " + botAccount.Access_Token_Secret + "\r\n" );
 		shell.open();
 		shell.layout();
 		while (!shell.isDisposed()) {

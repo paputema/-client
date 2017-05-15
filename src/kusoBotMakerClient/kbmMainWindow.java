@@ -34,7 +34,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.wb.swt.SWTResourceManager;
 
 import kusoBotMaker.BotAccount;
 import kusoBotMaker.DataContainer;
@@ -580,7 +579,7 @@ public class kbmMainWindow {
 		btnNewButton_1.setText("停止");
 
 		Composite composite = new Composite(shell, SWT.NONE);
-		composite.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
+		composite.setBackground(display.getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
 		composite.setLayout(new FillLayout(SWT.HORIZONTAL));
 		FormData fd_composite = new FormData();
 		fd_composite.bottom = new FormAttachment(btnNewButton, -6);
@@ -590,7 +589,7 @@ public class kbmMainWindow {
 		composite.setLayoutData(fd_composite);
 
 		table = new Table(composite, SWT.BORDER | SWT.FULL_SELECTION | SWT.VIRTUAL);
-		table.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		table.setBackground(display.getSystemColor( SWT.COLOR_WHITE));
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 
