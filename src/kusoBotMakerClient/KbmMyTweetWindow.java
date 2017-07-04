@@ -189,6 +189,7 @@ private ProgressBar progressBar;
 		shell.layout();
 
 		ThreadGetMyTweet tgmt = new ThreadGetMyTweet(botAccount,table);
+		tgmt.setDaemon(true);
 		getMyTweetFuture = scheduledexec.schedule(tgmt,0,TimeUnit.MINUTES);
 
 
@@ -328,6 +329,7 @@ private ProgressBar progressBar;
 		{
 			int progsel = i;
 			try {
+
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				// TODO 自動生成された catch ブロック

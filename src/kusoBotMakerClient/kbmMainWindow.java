@@ -49,6 +49,9 @@ import twitter4j.TwitterException;
 import twitter4j.TwitterStreamFactory;
 import twitter4j.User;
 import twitter4j.conf.Configuration;
+;
+
+
 
 public class kbmMainWindow {
 
@@ -104,7 +107,6 @@ public class kbmMainWindow {
 		}
 
 		class BotAccountWindowUserStreamAdapter extends BotAccountUserStreamAdapter {
-
 			BotAccountWindowUserStreamAdapter(Configuration conf) {
 				super(conf);
 				// TODO 自動生成されたコンストラクター・スタブ
@@ -333,41 +335,45 @@ public class kbmMainWindow {
 			this.consumerSecret = consumerSecret;
 			this.Access_Token = Access_Token;
 			this.Access_Token_Secret = Access_Token_Secret;
+			if(twitter != null)
+			{
+				try {
 
-			try {
-				this.user = this.twitter.verifyCredentials();
-				if (this.tableItem == null) {
-					this.tableItem = new TableItem(table, SWT.RIGHT);
-				}
-				tableItem.setData(this);
-				tableItem.setText(user.getName());
-				tableItem.setImage(KbmImgeUtil.getImage((this.user.getProfileImageURLHttps())));
-				if (!clientOnry) {
-					if (this.Enable) {
-						this.startBot();
-					} else {
-						this.stopBot();
+
+					this.user = this.twitter.verifyCredentials();
+					if (this.tableItem == null) {
+
+						this.tableItem = new TableItem(table, SWT.RIGHT);
 					}
+					tableItem.setData(this);
+					tableItem.setText(user.getName());
+					tableItem.setImage(KbmImgeUtil.getImage((this.user.getProfileImageURLHttps())));
+					if (!clientOnry) {
+						if (this.Enable) {
+							this.startBot();
+						} else {
+							this.stopBot();
+						}
+					}
+					if (user != null) {
+						folist = new GetFollowerLIST();
+						frlist = new GetfriendsLIST();
+						folist.setDaemon(true);
+						frlist.setDaemon(true);
+						folist.start();
+						frlist.start();
+						refreshBotAcountStatusClientOnry();
+					}
+				} catch (IllegalStateException | TwitterException e) {
+					this.tableItem = new TableItem(table, SWT.RIGHT);
+					tableItem.setText(User_ID + "");
+					tableItem.setText(1, "起動失敗");
+					tableItem.setText(2, "しばらくしたら「開始」を選択してください");
+					tableItem.setData(this);
+					this.setBotAcountStatus(enumBotAcountStatus.BOTPAUSE);
 				}
-				if (user != null) {
-					folist = new GetFollowerLIST();
-					frlist = new GetfriendsLIST();
-					folist.setDaemon(true);
-					frlist.setDaemon(true);
-					folist.start();
-					frlist.start();
-					refreshBotAcountStatusClientOnry();
-				}
-			} catch (IllegalStateException | TwitterException e) {
-				this.tableItem = new TableItem(table, SWT.RIGHT);
-				tableItem.setText(User_ID + "");
-				tableItem.setText(1, "起動失敗");
-				tableItem.setText(2, "しばらくしたら「開始」を選択してください");
-				tableItem.setData(this);
-				this.setBotAcountStatus(enumBotAcountStatus.BOTPAUSE);
+				mapBotAccountOnWindow.put(User_ID, this);
 			}
-			mapBotAccountOnWindow.put(User_ID, this);
-
 		}
 
 		void refreshBotAcountStatusClientOnry() {
@@ -735,10 +741,7 @@ public class kbmMainWindow {
 		btnNewButton_2.setLayoutData(fd_btnNewButton_2);
 		btnNewButton_2.setText("BOT追加");
 
-		KbmUtil.init();// 一回呼び出して初期化してやらんと落ちる。初期化中に競合でも起こすの？
-		kbmwin.addBotAcount(BotAccount.GetAccessToken());
 
-		shell.pack();
 
 		Button btnBotDelete = new Button(shell, SWT.NONE);
 		fd_btnNewButton_2.right = new FormAttachment(btnBotDelete, -183);
@@ -786,10 +789,15 @@ public class kbmMainWindow {
 		btnNewButtonSong.setLayoutData(fd_btnNewButtonSong);
 		btnNewButtonSong.setText("歌/掛け合い");
 
+		KbmUtil.init();// 一回呼び出して初期化してやらんと落ちる。初期化中に競合でも起こすの？
+
+
+		shell.pack();
 		shell.open();
 		shell.layout();
 		// ExecutorService executorserveUpdateStatuServer =
 		// Executors.newFixedThreadPool(1);
+		kbmwin.addBotAcount(BotAccount.GetAccessToken());
 		resizeTable();
 
 
@@ -842,8 +850,8 @@ public class kbmMainWindow {
 
 	}
 
-	void addBotAcount(ResultSet rs) {
 
+	void addBotAcount(ResultSet rs) {
 		try {
 			while (rs.next()) {
 				new BotAccountOnWindow(rs.getLong("User_ID"), rs.getString("Consumer_Key"),
@@ -856,6 +864,8 @@ public class kbmMainWindow {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+
+
 
 	}
 

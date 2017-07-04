@@ -190,9 +190,10 @@ public class kbmSongEdit {
 	void addSongTxt() {
 		String Item = comboAccount.getItem(comboAccount.getSelectionIndex());
 		User user = (User) comboAccount.getData(Item);
-		comboAccount.remove(Item);
+
 		Songs.InsertSong(song_id, user.getId(), text.getText(), spinner.getSelection());
-		comboAccount.setItem(0, Item);
+		comboAccount.add(Item,0);
+
 		RefreshTable();
 	}
 

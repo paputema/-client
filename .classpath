@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="E:/pleiades/eclipse/plugins/org.eclipse.core.runtime_3.11.1.v20150903-1804.jar"/>
-	<classpathentry exported="true" kind="lib" path="E:/pleiades/eclipse/plugins/org.eclipse.jface.databinding_1.7.0.v20150406-2148.jar"/>
-	<classpathentry kind="lib" path="E:/pleiades/swt/swt.jar"/>
-	<classpathentry kind="lib" path="E:/pleiades/eclipse/plugins/com.ibm.icu_54.1.1.v201501272100.jar" sourcepath="E:/pleiades/eclipse/dropins/EclipseRCP/eclipse/plugins/com.ibm.icu.source_54.1.1.v201501272100.jar"/>
-	<classpathentry kind="lib" path="E:/pleiades/twitter4j-4.0.4/lib/twitter4j-async-4.0.4.jar"/>
-	<classpathentry kind="lib" path="E:/pleiades/twitter4j-4.0.4/lib/twitter4j-core-4.0.4.jar"/>
-	<classpathentry kind="lib" path="E:/pleiades/twitter4j-4.0.4/lib/twitter4j-examples-4.0.4.jar"/>
-	<classpathentry kind="lib" path="E:/pleiades/twitter4j-4.0.4/lib/twitter4j-media-support-4.0.4.jar"/>
-	<classpathentry kind="lib" path="E:/pleiades/twitter4j-4.0.4/lib/twitter4j-stream-4.0.4.jar"/>
-	<classpathentry kind="lib" path="E:/pleiades/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar"/>
-	<classpathentry kind="lib" path="E:/pleiades/eclipse/plugins/org.eclipse.core.expressions-3.4.401.v20120912-155018.jar/org.eclipse.core.expressions-3.4.401.v20120912-155018.jar"/>
-	<classpathentry kind="lib" path="E:/pleiades/eclipse/plugins/org.eclipse.core.commands_3.7.0.v20150422-0725.jar"/>
-	<classpathentry kind="lib" path="E:/pleiades/eclipse/plugins/org.eclipse.equinox.common_3.7.0.v20150402-1709.jar"/>
-	<classpathentry kind="lib" path="swing2swt.jar"/>
+	<classpathentry kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/KusoBotMakerCore"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX"/>
-	<classpathentry kind="lib" path="E:/pleiades/eclipse/plugins/org.eclipse.jface.jar"/>
-	<classpathentry kind="lib" path="E:/pleiades/eclipse/plugins/org.eclipse.swt.win32.win32.x86_64_3.104.2.v20160212-1350.jar"/>
-	<classpathentry kind="lib" path="E:/pleiades/eclipse/plugins/org.eclipse.swt.win32.win32.x86_64.source_3.104.2.v20160212-1350.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>
