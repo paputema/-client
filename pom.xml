@@ -48,6 +48,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+			<version>6.0.6</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
@@ -61,11 +62,6 @@
 				<groupId>org.twitter4j</groupId>
 				<artifactId>twitter4j-stream</artifactId>
 				<version>4.0.4</version>
-			</dependency>
-			<dependency>
-				<groupId>mysql</groupId>
-				<artifactId>mysql-connector-java</artifactId>
-				<version>5.1.31</version>
 			</dependency>
 			<dependency>
 				<groupId>org.eclipse.jface</groupId>
